@@ -5,7 +5,9 @@ import { SayHellO } from "./sayHello";
 function App() {
   return (
   <div style={{ border: "1px solid orange"}}>
-    <p>I m App Component</p>
+    <p style={{color: "red"}}>I m App Component</p>
+    <SayHellO/>
+    <SayHellO/>
     <SayHellO/>
   </div>
   );
