@@ -3,7 +3,7 @@ export function Tweet() {
         <div>
             <h3>name</h3>
             <p>content</p>
-            <p>12</p>
+            <p>12 </p>
         </div>
     )
 }
