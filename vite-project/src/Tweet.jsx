@@ -5,6 +5,14 @@ export function Tweet({name, content, like}) {
         console.log('LIKE', name);
     };
 
+// //Test pour les likes 
+//   let [like, setLike] = useState(like)
+
+//   const addLike = () => {
+//     like += [+1];
+//     console.log(like)
+//   }
+
     return (
         <div className="tweet">
             <h3>{name}</h3>

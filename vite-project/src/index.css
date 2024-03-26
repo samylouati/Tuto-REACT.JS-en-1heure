@@ -1,3 +1,10 @@
+.tests {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 * {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -33,4 +40,12 @@
     border: none;
     border-radius: 5px;
     box-shadow: 2px 2px 5px;
+    cursor: pointer;
+}
+
+.myBtn {
+    box-shadow: 2px 2px 15px;
+    padding: 30px;
+    margin: 30px;
+    cursor: pointer;
 }

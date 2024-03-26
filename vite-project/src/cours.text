@@ -1,0 +1,8 @@
+Les hooks : se sont des fonctions qui donnent les Features React comme les states et lifecycle methods sans avoir besoin de classes.
+Ils gerent le lifecycle, l'etat et la logique.
+Ils permettent :
+- de split le code (donc de le gerer, le trier) > influencent la vue html
+- Gerent un etat (avec useState et useReducer)
+- Le lifecycle (useEffect et useLayoutEffect) > gerer des evenements, gerer des slides effect, connaitre quand un comoposant Mount/UnMount
+
+les hooks commencent par "use"
