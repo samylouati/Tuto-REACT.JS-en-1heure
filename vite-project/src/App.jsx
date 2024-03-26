@@ -1,6 +1,8 @@
 //Composants Tweet
 import { Tweet } from "./Tweet";
 import { useState } from "react";
+import { TweetForm } from "./assets/TweetForm";
+import { TweetList } from "./assets/TweetList";
 
 const DEFAULT_TWEET = [
   {
@@ -27,31 +29,57 @@ const DEFAULT_TWEET = [
     content:"Fun!",
     like: 85,
   },
-]
+];
+
+const useTweets = () => {
+  const [tweets, setTweets] = useState(DEFAULT_TWEET);
+
+  const addTweet = (tweet) => {
+
+    setTweets((curr) => { 
+
+      const newTweet = {
+        id: curr[curr.length - 1]?.id +1 ?? 0,
+        name: tweet.name,
+        content: tweet.content,
+        like: 0,
+      };
+
+      return[...tweets, newTweet];
+    });    
+  };
+
+  const onDelete = (tweetId) => {
+    setTweets((curr) => curr.filter((tweet) => tweet.id !== tweetId));
+  };
+
+  const onLike = (tweetId) => {
+    setTweets((curr) => {
+      const copyTweet = [...curr];
+
+      const likedTweet = copyTweet.find((tweet) => tweet.id === tweetId);
+      likedTweet.like += 1;
+
+      return copyTweet;
+    });
+  };
+
+  return { onLike, onDelete, addTweet, tweets}
+
+}
+
+
 
 function App() {
-  let [tweets, setTweets] = useState(DEFAULT_TWEET);
-
-  const tweetList = tweets.map((tweet) => {
-    return (
-      <Tweet 
-        key={tweet.id}
-        name={tweet.name}
-        content={tweet.content}
-        like={tweet.like} 
-      />
-    );
-  });
+ const { onLike, onDelete, addTweet, tweets} = useTweets();
 
   return (
-  <div className="tests">
-    <p>{username}</p>
-    <button className="myBtn" onClick={addLetter}>Ajouter une lettre</button>
-    <div className="tweet_container">
-      {t}
+    <div className="tests">
+     
+      <TweetForm onSubmit={addTweet} />
+      <TweetList tweets={tweets} onDelete={onDelete} onLike={onLike}/>
+
     </div>
-    
-  </div>
   );
 }
 
